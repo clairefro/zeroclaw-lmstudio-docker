@@ -160,3 +160,23 @@ response_cache_enabled = false
 # Restart
 docker compose up -d
 ```
+
+### getting Harmony-style respones?
+
+example:
+
+```
+<|channel|>commentary to=tool_result <|constrain|>json<|message|>We need to wrap in <tool_call>.<|channel|>commentary to=tool_result <|constrain|>json<|message|>{"name":"shell","arguments":{"command":"curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"},"approved":false}
+```
+
+your local model might be using Harmony-style formatting. force openai still responses by updating config.toml
+
+```toml
+[provider]
+name = "custom:http://host.docker.internal:1234/v1"
+api_key = "lm-studio"
+# Tell ZeroClaw to handle Harmony-style formatting
+# (Note: This depends on your specific ZeroClaw binary version)
+format = "openai-compatible"
+strip_special_tokens = true
+```
