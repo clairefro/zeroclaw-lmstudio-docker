@@ -62,10 +62,16 @@ docker logs zeroclaw
 docker exec zeroclaw zeroclaw status
 ```
 
-### down and up
+## down and up
 
 ```sh
 docker compose down && docker compose up -d
+```
+
+or restart
+
+```sh
+docker compose restart zeroclaw
 ```
 
 ## stop
