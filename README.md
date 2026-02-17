@@ -20,13 +20,6 @@ NOTE FOR LM STUDIO: for provider, choose "custom with OpenAI bindings", use your
 - ensure CORS enabled
 - ensure local network access enabled
 
-after onboarding, pair the terminal (inside container)
-
-```sh
-docker exec zeroclaw curl -X POST http://127.0.0.1:8080/pair \
-     -H "X-Pairing-Code: <pairing code from onboarding>"
-```
-
 interact (zeroclaw agent cli)
 
 ```sh
