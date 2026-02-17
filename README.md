@@ -4,6 +4,16 @@ Run ZeroClaw agent with local models (LM Studio) in Docker container, with host-
 
 NOTE: for Ollama, use ZeroClaw's Ollama provider option in onboarding wizard
 
+### Recommended Models for ZeroClaw (2026)
+
+| Model Name            | Parameter Size | Architecture | Best Use Case                                                                           | VRAM / RAM  |
+| :-------------------- | :------------- | :----------- | :-------------------------------------------------------------------------------------- | :---------- |
+| **Mistral Small 3.2** | 24B            | Dense        | **Most Reliable.** The current gold standard for local tool use. Zero formatting leaks. | 16GB - 24GB |
+| **Qwen3-8B-Instruct** | 8B             | Dense        | **Fastest.** High instruction following with a massive context window (131k).           | 8GB - 12GB  |
+| **Llama 4-8B**        | 8B             | Dense        | **Daily Driver.** Optimized for agentic execution and multi-step reasoning.             | 8GB         |
+| **DeepSeek-V3.2-Exp** | 7B-14B         | MoE          | **Coding & Logic.** Best for complex shell commands and repo browsing.                  | 10GB - 16GB |
+| **MiMo-V2-Flash**     | 15B (Active)   | MoE          | **Efficiency.** Ultra-fast output speed (60+ tps) for snappy terminal work.             | 12GB        |
+
 ## Quickstart
 
 start
@@ -103,6 +113,12 @@ or compose
 docker compose up -d
 ```
 
+## force config reload
+
+```sh
+docker compose up -d --force-recreate
+```
+
 ## troubleshooting
 
 If you are on Linux, host.docker.internal doesn't always work out of the box. You must tell Docker what that address means by adding a flag to your run command:
@@ -180,3 +196,27 @@ api_key = "lm-studio"
 format = "openai-compatible"
 strip_special_tokens = true
 ```
+
+or try adding this in IDENTITY.md
+
+```markdown
+# HARMONY PROTOCOL RULES
+
+- NEVER output raw tokens like <|channel|>, <|message|>, or <|constrain|>.
+- Your response to the user MUST be plain text only.
+- All tool calls MUST be standard JSON wrapped in <tool_call> tags.
+- Do not announce your internal planning to the user.
+```
+
+or in LM Studio:
+
+1. Click Settings (the Gear icon ⚙️ in the bottom-left sidebar).
+1. Select Developer from the sub-menu.
+1. Scroll down to the bottom to find the section for REST API.
+1. Toggle ON: "When applicable, separate reasoning_content and content in API responses".
+
+and Configure Your Model's Stop Strings
+
+- Start String to <|channel|>analysis<|message|>.
+- End String to <|end|>.
+- Ensure Reasoning Section Parsing is toggled ON.
