@@ -95,6 +95,13 @@ docker compose down -v
 docker start zeroclaw
 ```
 
+or compose 
+
+```sh
+docker compose up -d
+```
+
+
 ## troubleshooting
 
 If you are on Linux, host.docker.internal doesn't always work out of the box. You must tell Docker what that address means by adding a flag to your run command:
