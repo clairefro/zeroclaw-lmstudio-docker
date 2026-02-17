@@ -24,7 +24,7 @@ docker exec zeroclaw curl -X POST http://127.0.0.1:8080/pair \
 interact (zeroclaw agent cli)
 
 ```sh
-docker exec -it zeroclaw zeroclaw agent --config /root/.config/zeroclaw/config.toml
+docker exec -it zeroclaw zeroclaw agent
 ```
 
 ## other
