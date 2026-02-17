@@ -17,9 +17,8 @@ RUN apt-get update && apt-get install -y libssl3 ca-certificates curl && rm -rf 
 # Copy binary and set permissions
 COPY --from=builder /usr/src/zeroclaw/target/release/zeroclaw /usr/local/bin/zeroclaw
 
-# Ensure config directory exists and copy config.toml
+# Ensure config directory exists
 RUN mkdir -p /root/.zeroclaw
-COPY config.toml /root/.zeroclaw/config.toml
 
 EXPOSE 8080
 
