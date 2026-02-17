@@ -1,5 +1,5 @@
 # ZeroClaw with LM Studio in Docker
-Run ZeroClaw agent with local models (LM Studio)
+Run ZeroClaw agent with local models (LM Studio) in Docker container, with host-mounted volumes for easy access and transparency.
 
 NOTE: for Ollama, use ZeroClaw's Ollama provider option in onboarding wizard
 
