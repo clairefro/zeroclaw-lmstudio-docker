@@ -1,4 +1,5 @@
 # ZeroClaw with LM Studio in Docker
+
 Run ZeroClaw agent with local models (LM Studio) in Docker container, with host-mounted volumes for easy access and transparency.
 
 NOTE: for Ollama, use ZeroClaw's Ollama provider option in onboarding wizard
@@ -95,12 +96,11 @@ docker compose down -v
 docker start zeroclaw
 ```
 
-or compose 
+or compose
 
 ```sh
 docker compose up -d
 ```
-
 
 ## troubleshooting
 
@@ -115,7 +115,7 @@ docker exec -it zeroclaw zeroclaw doctor
 
 ### local model hanging?
 
-If you succesfulyl connect to local model but response is hanging, update config.toml (in mounted `./zeroclaw_data/config.toml`)
+If you successfully connect to local model but response is hanging, update config.toml (in mounted `./zeroclaw_data/config.toml`)
 
 Add this provider info to the bottom to
 
