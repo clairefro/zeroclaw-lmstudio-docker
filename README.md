@@ -14,7 +14,7 @@ onboard zeroclaw
 docker exec -it zeroclaw zeroclaw onboard --interactive
 ```
 
-NOTE FOR LM STUDIO: for provider, choose "custom with OpenAI bindings", use your local model's server url. on host machine windows/mac: `http://host.docker.internal:1234/v1` / linux: `http://172.17.0.1:1234/v1`
+NOTE FOR LM STUDIO: for provider, choose "custom with OpenAI bindings", use your local model's server url. on host machine windows/mac: `http://host.docker.internal:1234/v1` / linux: `http://172.17.0.1:1234/v1`. be sure to set API key as some non-empty string (ex: `lm-studio`)
 
 - ensure LLM local server is ON
 - ensure CORS enabled
