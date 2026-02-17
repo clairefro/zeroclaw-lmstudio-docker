@@ -35,7 +35,8 @@ docker exec -it zeroclaw zeroclaw agent
 view zeroclaw config
 
 ```sh
-docker exec zeroclaw cat /root/.config/zeroclaw/config.toml
+docker exec zeroclaw cat /root/.zeroclaw/config.toml
+
 ```
 
 interact (bash)
@@ -142,7 +143,7 @@ rm -rf ./workspace/sessions/*
 
 ```
 
-and add in config.toml
+and add/edit in config.toml
 
 ```toml
 [agent]
